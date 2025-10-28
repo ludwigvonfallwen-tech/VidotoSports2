@@ -62,8 +62,8 @@ export default function Footer({ scrollToSection }: FooterProps) {
           <div>
             <h4 className="text-lg font-bold mb-4">Contato</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>(XX) XXXX-XXXX</li>
-              <li>contato@vidotosports.com.br</li>
+              <li>(11) 96668-4298</li>
+              <li>vidotosports@gmail.com</li>
               <li>São Paulo - SP</li>
             </ul>
             <div className="flex gap-4 mt-6">
