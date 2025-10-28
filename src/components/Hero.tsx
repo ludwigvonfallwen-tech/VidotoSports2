@@ -39,32 +39,35 @@ export default function Hero({ scrollToSection }: HeroProps) {
       <div className="container mx-auto px-6 py-32 relative z-10 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight flex flex-wrap justify-center items-baseline gap-x-4">
-              <span>Formando</span>
-              <span className="relative inline-block min-w-[280px] md:min-w-[420px] h-[1.2em] text-yellow-400">
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute top-0 left-0 right-0 font-bold whitespace-nowrap text-center"
-                    initial={{ opacity: 0, y: -100 }}
-                    transition={{ type: "spring", stiffness: 50 }}
-                    animate={
-                      titleNumber === index
-                        ? {
-                            y: 0,
-                            opacity: 1,
-                          }
-                        : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
-                    }
-                  >
-                    {title}
-                  </motion.span>
-                ))}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="block">
+                Formando{" "}
+                <span className="relative inline-block align-baseline min-w-[280px] md:min-w-[420px] text-yellow-400" style={{ height: '1em' }}>
+                  {titles.map((title, index) => (
+                    <motion.span
+                      key={index}
+                      className="absolute left-0 right-0 font-bold whitespace-nowrap text-center"
+                      style={{ top: 0 }}
+                      initial={{ opacity: 0, y: -100 }}
+                      transition={{ type: "spring", stiffness: 50 }}
+                      animate={
+                        titleNumber === index
+                          ? {
+                              y: 0,
+                              opacity: 1,
+                            }
+                          : {
+                              y: titleNumber > index ? -150 : 150,
+                              opacity: 0,
+                            }
+                      }
+                    >
+                      {title}
+                    </motion.span>
+                  ))}
+                </span>
               </span>
-              <span className="w-full">Dentro e Fora das Quadras</span>
+              <span className="block">Dentro e Fora das Quadras</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
               Por trás de uniformes, bolas e aplausos, existe uma estrutura pensada para desenvolver o corpo, o caráter e o futuro das crianças.
