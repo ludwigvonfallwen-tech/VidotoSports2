@@ -41,12 +41,12 @@ export default function Hero({ scrollToSection }: HeroProps) {
           <div className="mb-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Formando{" "}
-              <span className="relative inline-flex justify-center overflow-hidden text-yellow-400">
+              <span className="relative inline-block min-w-[280px] md:min-w-[420px] h-[1.2em] text-yellow-400">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-bold"
-                    initial={{ opacity: 0, y: "-100" }}
+                    className="absolute left-0 right-0 font-bold whitespace-nowrap"
+                    initial={{ opacity: 0, y: -100 }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
                       titleNumber === index
