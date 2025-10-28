@@ -1,10 +1,29 @@
 import { ChevronRight } from 'lucide-react';
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 interface HeroProps {
   scrollToSection: (id: string) => void;
 }
 
 export default function Hero({ scrollToSection }: HeroProps) {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["Campeões", "Líderes", "Vencedores", "Atletas", "Exemplos"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#2133B9] via-[#1a2890] to-black z-0">
@@ -21,7 +40,31 @@ export default function Hero({ scrollToSection }: HeroProps) {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Formando <span className="text-yellow-400">Campeões</span><br />
+              Formando{" "}
+              <span className="relative inline-flex justify-center overflow-hidden text-yellow-400">
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={index}
+                    className="absolute font-bold"
+                    initial={{ opacity: 0, y: "-100" }}
+                    transition={{ type: "spring", stiffness: 50 }}
+                    animate={
+                      titleNumber === index
+                        ? {
+                            y: 0,
+                            opacity: 1,
+                          }
+                        : {
+                            y: titleNumber > index ? -150 : 150,
+                            opacity: 0,
+                          }
+                    }
+                  >
+                    {title}
+                  </motion.span>
+                ))}
+              </span>
+              <br />
               Dentro e Fora das Quadras
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
