@@ -42,11 +42,11 @@ export default function Hero({ scrollToSection }: HeroProps) {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="block">
                 Formando{" "}
-                <span className="relative inline-block align-baseline min-w-[280px] md:min-w-[420px] text-yellow-400" style={{ height: '1em' }}>
+                <span className="relative inline-block align-baseline text-yellow-400" style={{ height: '1em', width: '260px' }}>
                   {titles.map((title, index) => (
                     <motion.span
                       key={index}
-                      className="absolute left-0 right-0 font-bold whitespace-nowrap text-center"
+                      className="absolute left-0 font-bold whitespace-nowrap"
                       style={{ top: 0 }}
                       initial={{ opacity: 0, y: -100 }}
                       transition={{ type: "spring", stiffness: 50 }}
